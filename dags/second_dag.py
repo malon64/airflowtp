@@ -9,9 +9,9 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.postgres_operator import PostgresOperator
 
 default_args_dict = {
-    'start_date': datetime.datetime(2020, 6, 25, 0, 0, 0),
+    'start_date': datetime.datetime(2022, 1, 21, 12, 0, 0),#it's a friday
     'concurrency': 1,
-    'schedule_interval': "0 0 * * *",
+    'schedule_interval': "7 0 * * *",
     'retries': 1,
     'retry_delay': datetime.timedelta(minutes=5),
 }

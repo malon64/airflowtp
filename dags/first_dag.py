@@ -51,4 +51,6 @@ task_five = BashOperator(
     bash_command="rm /opt/airflow/dags/{{ds_nodash}}_correct.csv /opt/airflow/dags/{{ds_nodash}}_correct_filtered.csv /opt/airflow/dags/{{ds_nodash}}.xlsx",
 )
 
-task_one >> task_two >> task_three >> task_four >> task_five
+task_five >> [task_four,task_three, task_two]
+[task_four,task_three, task_two] >> task_three
+task_three >> task_one
